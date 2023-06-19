@@ -22,7 +22,10 @@ namespace BusinessObject.Models
         public string Notes { get; set; }
         [Required]
         public DateTime PublishedDate { get; set; }
+        [JsonIgnore]
         public virtual Publisher Publisher { get; set; }
+        public int PublisherId { get; set; }
+
         [JsonIgnore]
         public ICollection<BookAuthor> BookAuthors { get; set; }
     }

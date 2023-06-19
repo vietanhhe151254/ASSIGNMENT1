@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
 namespace BusinessObject.Models
 {
     public class Author
@@ -22,6 +24,7 @@ namespace BusinessObject.Models
         public string Zip { get; set; }
         [Required]
         public string EmailAddress { get; set; }
+        [JsonIgnore]
         public ICollection<BookAuthor> BookAuthors { get; set; }
 
     }

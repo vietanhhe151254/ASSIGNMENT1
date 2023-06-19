@@ -19,6 +19,7 @@ namespace BusinessObject.Models
         [JsonIgnore]
         public ICollection<User> Users { get; set; }
 
+        [JsonIgnore]
         public ICollection<Book> Books { get; set; }
 
     }
