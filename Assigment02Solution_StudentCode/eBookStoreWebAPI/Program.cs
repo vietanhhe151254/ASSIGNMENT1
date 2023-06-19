@@ -20,6 +20,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddTransient<DataAccess.IRepository.IUserRepository, UserRepository>();
+builder.Services.AddTransient<IAuthorRepository, AuthorRepository>();
+builder.Services.AddTransient<IPublisherRepository, PublisherRepository>();
 builder.Services.AddSwaggerGen(c =>
 {
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
@@ -35,6 +37,8 @@ static IEdmModel GetEdmModel()
     ODataConventionModelBuilder oDataConventionModelBuilder = new ODataConventionModelBuilder();
     oDataConventionModelBuilder.EntitySet<Book>("Books");
     oDataConventionModelBuilder.EntitySet<User>("Users");
+    oDataConventionModelBuilder.EntitySet<Author>("Authors");
+
     return oDataConventionModelBuilder.GetEdmModel();
 }
 

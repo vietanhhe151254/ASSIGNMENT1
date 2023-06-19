@@ -23,9 +23,11 @@ namespace BusinessObject.Models
         [JsonIgnore]
         public virtual Publisher? Publisher { get; set; }
 
+        public int PublisherId { get; set; }
         public DateTime HireDate { get; set; }
         [JsonIgnore]
+        public virtual Role? Role { get; set; }
+        public int RoleId { get; set; }
 
-        public virtual Role Role { get; set; }
     }
 }

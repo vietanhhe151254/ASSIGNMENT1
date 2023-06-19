@@ -14,7 +14,7 @@ namespace eBookStoreWebAPI.Controllers
     public class UsersController : ODataController
     {
         private IUserRepository _userRepository = new UserRepository();
-
+        
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -41,14 +41,14 @@ namespace eBookStoreWebAPI.Controllers
         public IActionResult Post([FromBody] User user)
         {
             _userRepository.SaveUser(user);
-            return NoContent();
+            return Ok();
 
         }
 
-        [HttpPut]
-        public IActionResult Put(int key, [FromBody] User user)
+        [HttpPut("id")]
+        public IActionResult Put(int id, [FromBody] User user)
         {
-            var p = _userRepository.GetUserById(key);
+            var p = _userRepository.GetUserById(id);
             if (p == null)
             {
                 return NotFound();
@@ -58,10 +58,10 @@ namespace eBookStoreWebAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int key)
+        [HttpDelete("id")]
+        public IActionResult Delete(int id)
         {
-            var user = _userRepository.GetUserById(key);
+            var user = _userRepository.GetUserById(id);
             if (user == null)
                 return NotFound();
 

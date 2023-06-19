@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Models;
 using DataAccess.DAO;
+using DataAccess.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class AuthorRepository
+    public class AuthorRepository: IAuthorRepository
     {
         public void SaveAuthor(Author author)
         {

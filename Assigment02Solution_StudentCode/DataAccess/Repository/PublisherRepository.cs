@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessObject.Models;
 using DataAccess.DAO;
+using DataAccess.IRepository;
+
 namespace DataAccess.Repository
 {
-    public class PublisherRepository
+    public class PublisherRepository : IPublisherRepository
     {
         public void SavePublisher(Publisher publisher)
         {
